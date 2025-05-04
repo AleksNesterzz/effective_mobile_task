@@ -55,7 +55,7 @@ func (c *PersonController) CreatePerson(ctx *gin.Context) {
 		Nationality: person.Nationality,
 		IsActive:    person.IsActive,
 	}
-
+	c.logger.Info("Person created sucessfully")
 	ctx.JSON(http.StatusOK, response)
 }
 
@@ -149,7 +149,7 @@ func (c *PersonController) GetAllPersons(ctx *gin.Context) {
 			IsActive:    person.IsActive,
 		}
 	}
-
+	c.logger.Info("Succesfully got all persons")
 	ctx.JSON(http.StatusOK, response)
 }
 
@@ -188,7 +188,7 @@ func (c *PersonController) GetPerson(ctx *gin.Context) {
 		Nationality: person.Nationality,
 		IsActive:    person.IsActive,
 	}
-
+	c.logger.Info("Person got sucessfully")
 	ctx.JSON(http.StatusOK, response)
 }
 
@@ -235,7 +235,7 @@ func (c *PersonController) UpdatePerson(ctx *gin.Context) {
 		Nationality: person.Nationality,
 		IsActive:    person.IsActive,
 	}
-
+	c.logger.Info("Person updated succesfully")
 	ctx.JSON(http.StatusOK, response)
 }
 
@@ -265,6 +265,6 @@ func (c *PersonController) DeletePerson(ctx *gin.Context) {
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
-
+	c.logger.Info("Person deleted sucessfully")
 	ctx.JSON(http.StatusOK, gin.H{"message": "person deleted successfully"})
 }
